@@ -1,0 +1,287 @@
+<!-- <div class="min-h-screen bg-red-800 py-5">
+    <div class='overflow-x-auto w-full'>
+        <table
+            class='mx-auto max-w-6xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
+            <thead class="bg-gray-900">
+                <tr class="text-white text-left">
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> PRODUCT </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> PRICE </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> QUANTITY </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> TOTAL </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4"> REMOVE </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <tr>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="inline-flex w-20 "> <img class='object-cover' alt='User avatar'
+                                    src='img/pizza.png' /> </div>
+                            <div>
+                                <p> MARGHERITA </p>
+                                <p class="text-gray-500 text-sm font-semibold tracking-wide"> LARGE </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class=""> <i class="fas fa-rupee-sign"></i>150 </p>
+                        
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <div class='flex items-center'>
+                            <input type="button" value="-" class="pl-1 w-10 h-10 cursor-pointer">
+                            <input type="text" name="Quantity" id="qty" size="4" value="1"
+                                class="outline-none text-center bg-gray-100 w-12 h-10">
+                            <input type="button" value="+" class="w-10 h-10 cursor-pointer">
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-center"> <i class="fas fa-rupee-sign"></i>150 </td>
+                    <td class="px-6 py-4 text-center"> <a href="#" class=""><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="inline-flex w-20 "> <img class='object-cover' alt='User avatar'
+                                    src='img/pizza.png' /> </div>
+                            <div>
+                                <p> MARGHERITA </p>
+                                <p class="text-gray-500 text-sm font-semibold tracking-wide"> LARGE </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class=""> <i class="fas fa-rupee-sign"></i>150 </p>
+                        
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <div class='flex items-center'>
+                            <input type="button" value="-" class="pl-1 w-10 h-10 cursor-pointer">
+                            <input type="text" name="Quantity" id="qty" size="4" value="1"
+                                class="outline-none text-center bg-gray-100 w-12 h-10">
+                            <input type="button" value="+" class="w-10 h-10 cursor-pointer">
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-center"> <i class="fas fa-rupee-sign"></i>150 </td>
+                    <td class="px-6 py-4 text-center"> <a href="#" class=""><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+               
+            </tbody>
+
+            
+            
+        </table>
+    </div>
+    <div class="flex justify-between mt-12 flex-wrap">
+        <button class="text-white border border-primary px-4 py-3 mx-48  rounded-lg">CONTINUE SHOPPING</button>
+        <button class="text-white border border-primary px-4 py-3 mx-48  rounded-lg">UPDATE CART</button>
+    </div>
+<div class="flex justify-between mt-20 mx-28 flex-wrap">
+
+    <div>
+        <form action="">
+
+            <input type="text" class="border border-gray-400 p-2 block w-72 mb-4 mx-20" placeholder="Phone No.">
+            <input type="text" class="border border-gray-400 p-2 block w-72 mx-20" placeholder="Address">
+           
+        </form>
+    </div>
+
+    <div class="border w-1/3 text-white mx-14">
+        <h2 class="mx-5 my-2">CART TOTAL</h2>
+        <hr>
+            <div class="flex justify-between mx-5 my-2">
+                <span>ITEM(S) SUBTOTAL</span>
+                <span> <i class="fas fa-rupee-sign"></i>150 </span>
+            </div>
+            <div class="flex justify-between mx-5 my-2">
+                <span>SHIPPING</span>
+                <span>FREE</span>
+            </div>
+            <div class="flex justify-between mx-5 my-2">
+                <span>TOTAL</span>
+                <span><i class="fas fa-rupee-sign"></i>150</span>
+            </div>
+    </div>
+</div>
+
+    
+    
+</div> -->
+
+
+<!-- <style>
+    #banner::before {
+        content: "";
+        background: #121619 url(/img/cartbg.jpg) no-repeat center / cover;
+        height: 200px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+</style>
+
+<div id="banner">
+
+</div> -->
+
+
+
+<section class="cart py-16">
+    <% if(session.cart) { %>
+        <div class="order container mx-auto w-2/3">
+            <div class="flex items-center border-b border-gray-300 pb-4">
+                <img src="/img/cart-black.png" alt="">
+                <h1 class="font-body font-bold text-2xl ml-4">Order Summary</h1>
+            </div>
+
+            <div class="pizza-list">
+
+
+                <% for(let pizza of Object.values(session.cart.items)) { %>
+
+                    <div class="grid grid-cols-5 gap-10 my-8">
+                        <div class="col-span-2">
+                            <div class="flex items-center">
+                                <img src="/img/<%= pizza.item.image%>" alt="" class="w-24">
+                                <div class="ml-6">
+                                    <h1 class="font-bold text-lg font-body">
+                                        <%= pizza.item.name%>
+                                    </h1>
+                                    <span class="font-body text-lg">
+                                        <%= pizza.item.size%>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <span class="flex items-center justify-end">
+                            <%= pizza.qty%>pcs
+                        </span> -->
+                     
+                        <!-- <div class='flex items-center justify-center'>
+                           <button class="minus pl-1 w-10 h-10 cursor-pointer" data-pizzaid="<%= pizza.item._id %>">
+                               <span>-</span>
+                           </button>
+                           <input type="text" name="Quantity" id="qty" size="4" value="<%= pizza.qty %>"
+                                class="outline-none text-center bg-gray-100 w-12 h-10">
+                           <button class="plus pl-1 w-10 h-10 cursor-pointer" data-pizzaid="<%= pizza.item._id %>" data-pizza="<%= JSON.stringify(pizza)%>">
+                               <span>+</span>
+                           </button>
+                        </div> -->
+                        <div class='flex items-center justify-center'>
+                            <input type="button" value="-" class="minus pl-1 w-10 h-10 cursor-pointer" data-pizzaid="<%= pizza.item._id %>" onclick="decrement()">
+                            <input type="text" name="Quantity" id="qty" size="4" value="<%= pizza.qty %>"
+                                class="outline-none text-center bg-gray-100 w-12 h-10">
+                                
+                                
+                            <input type="button" value="+" class="plus w-10 h-10 cursor-pointer" data-pizzaid="<%= pizza.item._id %>" data-pizza="<%= JSON.stringify(pizza)%>" onclick="increment()">
+                        </div>
+                   
+
+                        <span class="flex items-center justify-end">
+                            <i class="fas fa-trash-alt" ></i>
+                        </span>
+                        <span class="flex items-center font-bold justify-end" id="itemval"><i class="fas fa-rupee-sign"></i>
+                            <%= pizza.item.price * pizza.qty%>
+                        </span>
+
+                    </div>
+
+                    <% } %>
+
+
+
+                <!-- <% for(let pizza of Object.values(session.cart.items)) { %>
+
+                    <div class="flex items-center my-8">
+                        <img src="/img/<%= pizza.item.image%>" alt="" class="w-24">
+                        <div class="flex-1 ml-4">
+                            <h1 class="font-bold text-lg font-body">
+                                <%= pizza.item.name%>
+                            </h1>
+                            <span class="font-body text-lg">
+                                <%= pizza.item.size%>
+                            </span>
+                        </div>
+                        <span class="flex-1">
+                            <%= pizza.qty%>pcs
+                        </span>
+                        <span class="flex-1">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                        <span class="font-bold"><i class="fas fa-rupee-sign"></i>
+                            <%= pizza.item.price * pizza.qty%>
+                        </span>
+
+                    </div>
+
+                    <% } %> -->
+                        
+            </div>
+
+            <hr>
+
+            <div class="text-right py-4">
+
+                <div>
+                    <span class="text-lg font-bold font-body">Total Amount:</span>
+                    <span class="font-bold text-2xl text-primary ml-2"><i class="fas fa-rupee-sign"></i>
+                        <%= session.cart.totalPrice%>
+                    </span>
+
+                    <div>
+                        <form action="" class="mt-12">
+
+                            <input type="text" class="border border-gray-400 p-2 w-1/2 mb-4" placeholder="Phone No.">
+                            <input type="text" class="border border-gray-400 p-2 w-1/2" placeholder="Address">
+                            <div>
+
+                                <button type="submit"
+                                    class="px-6 py-2 rounded-full text-white bg-primary font-bold mt-6 border border-primary hover:text-primary hover:bg-white transition duration-500">Order
+                                    Now</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- <a href="" class="inline-block cursor-pointer px-6 py-2 rounded-full text-white bg-primary font-bold mt-6 border border-primary hover:text-primary hover:bg-white transition duration-500">Login to continue</a> -->
+                </div>
+            </div>
+        </div>
+        <% } else { %>
+
+            <div class="mx-auto text-center">
+
+                <h1 class="sm:text-7xl mobile:text-5xl text-4xl font-body font-bold uppercase mb-5">Cart is Empty 😥
+                </h1>
+                <p class="text-primary sm:text-3xl text-xl font-body1 ">You Probably haven't ordered a pizza
+                    yet !<br> To Order a pizza Go to Menu page</p>
+
+                <img src="img/empty-cart.png" alt="" class="w-2/5 mx-auto py-10">
+
+
+                <a href="/menu"
+                    class="inline-block mobile:text-lg text-base rounded-full font-body font-bold text-black tracking-wider mobile:px-6 mobile:py-3 px-4 py-1.5 bg-primary border border-primary hover:bg-white hover:text-primary transition ease-in duration-300">Continue
+                    Shopping</a>
+            </div>
+            <% } %>
+</section>
+
+
+<!-- <section class="empty_cart py-16">
+    <div class="mx-auto text-center">
+
+        <h1 class="sm:text-7xl mobile:text-5xl text-4xl font-body font-bold uppercase mb-5">Cart is Empty 😥</h1>
+        <p class="text-primary sm:text-3xl text-xl font-body1 capitalize">You Probably haven't ordered a pizza yet !<br> To Order a pizza Go to Menu page</p>
+
+        <img src="img/empty-cart.png" alt="" class="w-2/5 mx-auto py-10">
+
+       
+          <a href="#" class="inline-block mobile:text-lg text-base rounded-full font-body font-bold text-black tracking-wider mobile:px-6 mobile:py-3 px-4 py-1.5 bg-primary border border-primary hover:bg-white hover:text-primary transition ease-in duration-300">Continue Shopping</a>
+     </div>
+
+</section> -->
+
+<script src="/js/cart.js"></script>

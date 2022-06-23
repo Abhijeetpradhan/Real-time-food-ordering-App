@@ -1,0 +1,749 @@
+<style>
+    #banner::before {
+        content: "";
+        background: #121619 url(/img/menu-banner-1.png) no-repeat center / cover;
+        height: 450px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .margin-t {
+        margin-top: 0;
+    }
+
+    .padding-t {
+        padding-top: 24px;
+    }
+</style>
+<div id="banner" class="mt-20">
+    <h4 class="text-center text-primary sm:text-3xl text-xl font-body1 capitalize">fresh from pizzon</h4>
+    <h1 class="sm:text-7xl mobile:text-5xl text-4xl text-primary text-center font-body font-bold uppercase mb-10">our
+        special menu</h1>
+</div>
+
+<section class="pt-48" id="tabs-id">
+
+
+    <div class="md:bg-gray-100 text-black text-sm font-body font-bold tracking-widest flex justify-center sm:flex-nowrap flex-wrap rounded-full lg:w-mywidth md:w-mdwidth mx-auto"
+        id="parent">
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1 bg-primary"
+            onclick="changeActiveTab(event,'tab-1')">PIZZAS</a>
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1"
+            onclick="changeActiveTab(event,'tab-2')">BURGERS</a>
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1"
+            onclick="changeActiveTab(event,'tab-3')">PASTA</a>
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1"
+            onclick="changeActiveTab(event,'tab-4')">DESSERTS</a>
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1"
+            onclick="changeActiveTab(event,'tab-5')">SALADS</a>
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1"
+            onclick="changeActiveTab(event,'tab-6')">DRINKS</a>
+        <a href="#;" class="md:rounded-3xl rounded-2xl lg:px-7 md:px-5 px-2.5 md:py-2.5 py-1"
+            onclick="changeActiveTab(event,'tab-7')">SNACKS</a>
+    </div>
+
+    <div class="tab-content">
+        <!--parent-->
+        <!-- tab-1 -->
+        <div class="block" id="tab-1">
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=0;i < 12; i++) { %>
+                   
+                      <div class="sm:mb-0 mb-10"> <img src="img/<%= pizzas[i].image %>" alt="" class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                        <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase"><%= pizzas[i].name %></h3>
+                        <h4 class="text-black text-base font-semibold"><%= pizzas[i].size %></h4>
+                        <span class="text-primary text-lg font-semibold"><i class="fas fa-rupee-sign"></i> <%= pizzas[i].price %></span>
+    
+                        <div class="mt-4">
+                            <a href="#;" data-pizza="<%= JSON.stringify(pizzas[i])%>" class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                                Now
+                            </a>
+                        </div>
+                    </div>
+                <% } %>
+                
+                
+
+            </div>
+        </div>
+        
+
+        <!-- tab-2 -->
+        <div class="hidden" id="tab-2">
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=12;i < 20; i++){ %>
+                <div class="sm:mb-0 mb-10"> 
+                    
+                    
+                    <img src="img/<%= pizzas[i].image %>" alt="" class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    
+                    <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block"><%= pizzas[i].name %></h3>
+                    
+                    
+                    <span class="text-primary text-lg font-semibold block"><i class="fas fa-rupee-sign"></i><%= pizzas[i].price %></span>
+
+                    <div class="mt-4">
+
+                        <a href="#;"  data-pizza="<%= JSON.stringify(pizzas[i])%>"    class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                    
+                </div>
+                <% }%>
+
+
+                <!-- <div class="sm:mb-0 mb-10"> <img src="img/b2.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">LITE WHOPPER VEG</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/b3.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">BK CLASSIC VEG BURGER</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/b4.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">VEG DOUBLE PATTY</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/b5.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">CRISPY CHICKEN BURGER</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/b6.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">CHICKEN WHOPPER</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/b7.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">FIERY CHICKEN CHEESE</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/b8.jpg" alt=""
+                        class="mx-auto h-40 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">KING EGG BURGER</h3>
+                    
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div> -->
+                
+
+            </div>
+        </div>
+        
+
+        <!-- tab-3 -->
+        <div class="hidden" id="tab-3">
+            <div
+                class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=20;i < 28; i++){ %>
+                <div class="sm:mb-0 mb-10"> <img src="img/<%= pizzas[i].image %>" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold"><%= pizzas[i].name %></h3>
+                    
+                    <span class="text-primary text-lg font-semibold"><i class="fas fa-rupee-sign"></i><%= pizzas[i].price %></span>
+
+                    <div class="mt-4">
+
+                        <a href="#;" data-pizza="<%= JSON.stringify(pizzas[i])%>" class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <% }%>
+                <!-- <div class="sm:mb-0 mb-10"> <img src="img/pa2.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">RAVIOLI</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/pa3.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">PAPPAREDELLE</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/pa4.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">GNOCCHI</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/pa5.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">VEGAN</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/pa6.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">GLUTEN FREE</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/pa7.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">LASAGNE</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/pa8.png" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">RIGATONI</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        
+
+        <!-- tab-4 -->
+        <div class="hidden" id="tab-4">
+            <div
+                class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=28;i < 34; i++){ %>
+                <div class="sm:mb-0 mb-10"> <img src="img/<%= pizzas[i].image %>" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase"><%= pizzas[i].name %></h3>
+                    <span class="text-primary text-lg font-semibold"><i class="fas fa-rupee-sign"></i><%= pizzas[i].price %></span>
+
+                    <div class="mt-4">
+
+                        <a href="#;" data-pizza="<%= JSON.stringify(pizzas[i])%>" class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <% }%>
+                <!-- <div class="sm:mb-0 mb-10"> <img src="img/de2.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase">Strawberry Cupcakes</h3>
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/de3.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase">absolute dark tart</h3>
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/de4.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase">Creamy Milk</h3>
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/de5.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase">Colourful Jar Cake</h3>
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/de6.jpg" alt=""
+                        class="mx-auto h-52 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase">Wheat & Oat Cookies</h3>
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div> -->
+               
+                    
+            </div>
+        </div>
+        
+
+        <!-- tab-5 -->
+        <div class="hidden" id="tab-5">
+            <div
+                class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=34;i < 42; i++){ %>
+                <div class="sm:mb-0 mb-10"> <img src="img/<%= pizzas[i].image %>" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase"><%= pizzas[i].name %></h3>
+                    <span class="text-primary text-lg font-semibold block"><i class="fas fa-rupee-sign"></i><%= pizzas[i].price %></span>
+
+                    <div class="mt-4">
+
+                        <a href="#;" data-pizza="<%= JSON.stringify(pizzas[i])%>" class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <% }%>
+                <!-- <div class="sm:mb-0 mb-10"> <img src="img/s2.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase">Indian Earth Bowl</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/s3.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase">Veg Caesar Salad</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/s4.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase">Watermelon & Avocado Salad</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/s5.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase">Chicken & Barley Salad</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/s6.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase">Prawn & Orange Salad</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/s7.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block uppercase">Almond & Chicken Salad</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/s8.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                        <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold inline-block">Roasted Chicken Salad</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div> -->
+                
+            </div>
+        </div>
+
+        <!-- tab-6 -->
+        <div class="hidden" id="tab-6">
+            <div
+                class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=42;i < 52; i++){ %>
+                <div class="sm:mb-0 mb-10"> <img src="img/<%= pizzas[i].image %>" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold"><%= pizzas[i].name %></h3>
+                    
+                    <span class="text-primary text-lg font-semibold"><i class="fas fa-rupee-sign"></i><%= pizzas[i].price %></span>
+
+                    <div class="mt-4">
+
+                        <a href="#;" data-pizza="<%= JSON.stringify(pizzas[i])%>" class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <% }%>
+                <!-- <div class="sm:mb-0 mb-10"> <img src="img/d2.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Caffétella</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d3.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Coffee Caramel</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d4.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Nutcafe</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d5.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Cookie 'n Cream</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d6.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Dark Dreams</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d7.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Peek-a-Boo</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d8.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Nutzella</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d9.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Hazel Berry</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10"> <img src="img/d10.jpg" alt=""
+                        class="mx-auto lg:h-52 lg:w-52 h-40 w-40 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold">Cookie Monster</h3>
+                    
+                    <span class="text-primary text-lg font-semibold">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div> -->
+                
+            </div>
+        </div>
+        
+
+        <!-- tab-7 -->
+        <div class="hidden" id="tab-7">
+            <div
+                class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xl:gap-10 sm:gap-6 xl:mx-20 lg:mx-10 md:mx-14 mobile:mx-16 mx-10 my-20 text-center font-body">
+                <% for(let i=52;i < 58; i++){ %>
+                <div class="sm:mb-0 mb-10">
+                    <img src="img/<%= pizzas[i].image %>" alt=""
+                        class="mx-auto h-32 w-60  transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase inline-block"><%= pizzas[i].name %></h3>
+                    <span class="text-primary text-lg font-semibold block"><i class="fas fa-rupee-sign"></i><%= pizzas[i].price %></span>
+
+                    <div class="mt-4">
+
+                        <a href="#;" data-pizza="<%= JSON.stringify(pizzas[i])%>" class="add-to-cart px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <% }%>
+                <!-- <div class="sm:mb-0 mb-10">
+                    <img src="img/sn2.jpg" alt=""
+                        class="mx-auto h-32 w-60  transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase inline-block">Spice Chicken Chunks</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10">
+                    <img src="img/sn3.jpg" alt=""
+                        class="mx-auto h-32 w-60  transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <img src="img/Non-veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase inline-block">Cheesy Meatballs</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10">
+                    <img src="img/sn4.jpg" alt=""
+                        class="mx-auto h-32 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase inline-block">Potato Cheese Shots</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10">
+                    <img src="img/sn5.jpg" alt=""
+                        class="mx-auto h-32 w-60  transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase inline-block">Crunchy Strips</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div>
+                <div class="sm:mb-0 mb-10">
+                    <img src="img/sn6.jpg" alt=""
+                        class="mx-auto h-32 w-60 transform transition-all hover:-translate-y-3 duration-300 cursor-pointer rounded-xl">
+                    <img src="img/veg.svg" alt="" class="h-4 w-4 inline-block -mt-1.5">
+                    <h3 class="text-black text-xl sm:pt-6 pt-2 font-semibold uppercase inline-block">Crinkle Fries</h3>
+                    <span class="text-primary text-lg font-semibold block">$20.50</span>
+
+                    <div class="mt-4">
+
+                        <a href="/cart"
+                            class="px-8 py-2 rounded-full text-white bg-black font-bold border border-black hover:text-black hover:bg-white transition duration-500 tracking-wider uppercase text-xl">Order
+                            Now</a>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<script src="js/app.js"></script>

@@ -1,0 +1,103 @@
+<style>
+    #banner::before {
+        content: "";
+        background: #121619 url(/img/menu-banner-1.png) no-repeat center / cover;
+        height: 450px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .margin-t {
+        margin-top: 0;
+    }
+
+    .padding-t {
+        padding-top: 24px;
+    }
+</style>
+<div id="banner" class="pt-48">
+    <!-- <h4 class="text-center text-primary sm:text-3xl text-xl font-body1 capitalize">fresh from pizzon</h4> -->
+    <h1 class="sm:text-7xl mobile:text-5xl text-4xl text-primary text-center font-body font-bold uppercase mb-10">All orders </h1>
+</div>
+
+<section class="orders light-section mx-10 mb-10">
+    <div class="container mx-auto pt-12">
+        <h1 class="font-bold text-lg mb-4">All orders</h1>
+
+        <table class="w-full table-auto bg-white">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 text-left">Orders</th>
+                    <th class="px-4 py-2 text-left">Customer</th>
+                    <th class="px-4 py-2 text-left">Address</th>
+                    <th class="px-4 py-2 text-left">status</th>
+                    <th class="px-4 py-2 text-left">Placed at</th>
+                    <!-- <th class="px-4 py-2 text-left">Payment Status</th> -->
+                </tr>
+            </thead>
+
+             <% function renderItems(items) { %>
+             <%      let parsedItems = Object.values(items)  %>
+             <%      return parsedItems.map((menuItem) => { %>
+             <%          return `<p>${ menuItem.item.name } - ${ menuItem.qty } pcs </p>` %>
+             <%      }).join(''); %>
+             <%    } %>
+
+            <tbody id="orderTableBody">
+               <% orders.forEach((order) => { %>
+                <tr>
+                    <td class="border px-4 py-2 text-green-900">
+                        <p class="text-primary"><%= order.orderId %></p> <!--this may be order.orderId we need to check this one-->
+                        <div><%- renderItems(order.items) %></div>
+                    </td>
+                    <td class="border px-4 py-2"><%= order.customerName %></td>
+                    <td class="border px-4 py-2"><%= order.address %></td>
+                    <td class="border px-4 py-2">
+                        <div class="inline-block relative w-64">
+                            <form action="/admin/order/status" method="post">
+                                <input type="hidden" name="orderId" value="<%= order.orderId %>" />
+                                <select name="orderStatus" onchange="this.form.submit()"  class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="order_placed" <%= order.orderStatus === 'order_placed' ? 'selected' : '' %>>
+                                        Placed
+                                    </option>
+                                    <option value="confirmed" <%= order.orderStatus === 'confirmed' ? 'selected' : '' %>>
+                                        Confirmed
+                                    </option>
+                                    <option value="prepared" <%= order.orderStatus === 'prepared' ? 'selected' : '' %>>
+                                        Prepared
+                                    </option>
+                                    <option value="delivered" <%= order.orderStatus === 'delivered' ? 'selected' : '' %>>
+                                        Delivered
+                                    </option>
+                                    <option value="completed" <%= order.orderStatus === 'completed' ? 'selected' : '' %>>
+                                        Completed
+                                    </option>
+                                </select>
+                            </form>
+                            <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </div>
+                        </div>
+                    </td>
+                    <td class="border px-4 py-2">
+                        <%=order.createdAt%>
+                    </td>
+                    <!-- <td class="border px-4 py-2">
+                        <% order.paymentStatus ? 'paid' : 'Not paid' %>
+                    </td> -->
+                </tr>
+            
+               <% }) %> 
+            </tbody>
+        </table>
+    </div>
+</section>
+
